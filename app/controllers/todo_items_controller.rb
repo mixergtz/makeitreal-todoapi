@@ -1,5 +1,6 @@
 class TodoItemsController < ApplicationController
   respond_to :json
+  before_action :find_todo, only: [:show, :update, :destroy]
 
 
   def index
@@ -8,7 +9,6 @@ class TodoItemsController < ApplicationController
   end
 
   def show
-    @todo_item = TodoItem.find(params[:id])
     respond_with @todo_item
   end
 
@@ -30,7 +30,6 @@ class TodoItemsController < ApplicationController
   end
 
   def update
-    @todo_item = TodoItem.find(params[:id])
     if @todo_item.update_attributes(todo_params)
       respond_with @todo_item
     else
@@ -40,13 +39,17 @@ class TodoItemsController < ApplicationController
 
 
   def destroy
-    @todo_item = TodoItem.find(params[:id])
+
     @todo_item.destroy
     render :nothing => true, :status => 204
 
   end
 
   private
+
+    def find_todo
+      @todo_item = TodoItem.find(params[:id])
+    end
 
     def todo_params
       params.require(:todo_item).permit(:title, :done)
