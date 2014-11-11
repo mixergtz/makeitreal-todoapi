@@ -21,10 +21,10 @@
         <a name="list-items"></a>
         <h3>List Todo Items</h3>
         <p>To list all the items in the Todo List, make a <code>GET</code> call to the <code>/todo_items</code> endpoint:</p>
-        <pre>GET http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <pre>GET https://vast-coast-1718.herokuapp.com/todo_items</pre>
         <h4>Example</h4>
         <p>Copy and paste the following line to your console:</p>
-        <pre>curl -i http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <pre>curl -i https://vast-coast-1718.herokuapp.com/todo_items</pre>
         <h4>Result</h4>
         <p>If everything works as expected, you will receive a status <code>200 OK</code> with the items in the body of the response:</p>
         <pre>[
@@ -36,11 +36,11 @@
         <a name="create-item"></a>
         <h3>Create Todo Item</h3>
         <p>To add a new item to the Todo List, make a <code>POST</code> call to the <code>/todo_items</code> endpoint with the title of the item:</p>
-        <pre>POST http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <pre>POST https://vast-coast-1718.herokuapp.com/todo_items</pre>
         <pre>{ "title": "Item 1" }</pre>
         <h4>Example</h4>
         <p>Copy and paste the following line to your console:</p>
-        <pre>curl -i -X POST -H 'Content-Type: application/json' -d '{ "title": "Item 1" }' http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <pre>curl -i -X POST -H 'Content-Type: application/json' -d '{ "title": "Item 1" }' https://vast-coast-1718.herokuapp.com/todo_items</pre>
         <h4>Result</h4>
         <p>If everything works as expected, you will receive a status <code>200 OK</code> with the created item:</p>
         <pre>{ "id": 1, "title": "Item 1", "done": false, "create_at": "...", "updated_at": "" }</pre>
@@ -52,17 +52,17 @@
         <pre>{ "title": "Changed title", "done": true }</pre>
         <h4>Example</h4>
         <p>Copy and paste the following line to your console:</p>
-        <pre>curl -i -X PATCH -H 'Content-Type: application/json' -d '{ "done": true }' http://makeitreal-todo.herokuapp.com/todo_items/1</pre>
+        <pre>curl -i -X PATCH -H 'Content-Type: application/json' -d '{ "done": true }' https://vast-coast-1718.herokuapp.com/todo_items/1</pre>
         <h4>Result</h4>
         <p>If everything works as expected, you will receive a status <code>204 No Content</code></p>
 
         <a name="delete-item"></a>
         <h3>Delete Todo Item</h3>
         <p>To delete an item to the Todo List, make a <code>DELETE</code> call to the <code>/todo_items/&lt;item_id&gt;</code> endpoint:</p>
-        <pre>DELETE http://makeitreal-todo.herokuapp.com/todo_items/&lt;item_id&gt;</pre>
+        <pre>DELETE https://vast-coast-1718.herokuapp.com/todo_items/&lt;item_id&gt;</pre>
         <h4>Example</h4>
         <p>Copy and paste the following line to your console:</p>
-        <pre>curl -i -X DELETE http://makeitreal-todo.herokuapp.com/todo_items/1</pre>
+        <pre>curl -i -X DELETE https://vast-coast-1718.herokuapp.com/todo_items/1</pre>
         <h4>Result</h4>
         <p>If everything works as expected, you will receive a status <code>204 No Content</code></p>
       </div>
