@@ -1,0 +1,70 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h1 style="margin-top: 30px;">Todo - API</h1>
+        <p style="margin-top: 20px;">This is the API of a public <strong>Todo List</strong>. It is based on <a href="https://www.youtube.com/watch?v=7YcW25PHnAA" target="_blank">REST (Representational State Transfer)</a>, which makes integration easier by using all the advantages that the HTTP protocol has to offer.</p>
+
+        <p><strong>Note:</strong> The database is cleaned every night at midnight.</p>
+
+        <h2>Format</h2>
+        <p>We use JSON (JavaScript Object Notation) for requests and responses. JSON is a lightweight data-interchange format that is easy to write and read by both machines and humans. JSON is more compact than XML, faster to analyze, and easier to interpret.</p>
+
+        <h2>Endpoints</h2>
+        <p>The API of the Todo application exposes the following methods:</p>
+        <ul>
+          <li><a href="#list-items">List Todo Items</a></li>
+          <li><a href="#create-item">Create Todo Item</a></li>
+          <li><a href="#update-item">Update Todo Item</a></li>
+          <li><a href="#delete-item">Delete Todo Item</a></li>
+        </ul>
+
+        <a name="list-items"></a>
+        <h3>List Todo Items</h3>
+        <p>To list all the items in the Todo List, make a <code>GET</code> call to the <code>/todo_items</code> endpoint:</p>
+        <pre>GET http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <h4>Example</h4>
+        <p>Copy and paste the following line to your console:</p>
+        <pre>curl -i http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <h4>Result</h4>
+        <p>If everything works as expected, you will receive a status <code>200 OK</code> with the items in the body of the response:</p>
+        <pre>[
+  { "title": "Item 1", "done": false, "create_at": "...", "updated_at": "" },
+  { "title": "Item 2", "done": true, "create_at": "...", "updated_at": "" },
+  { "title": "Item 3", "done": false, "create_at": "...", "updated_at": "" }
+]</pre>
+
+        <a name="create-item"></a>
+        <h3>Create Todo Item</h3>
+        <p>To add a new item to the Todo List, make a <code>POST</code> call to the <code>/todo_items</code> endpoint with the title of the item:</p>
+        <pre>POST http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <pre>{ "title": "Item 1" }</pre>
+        <h4>Example</h4>
+        <p>Copy and paste the following line to your console:</p>
+        <pre>curl -i -X POST -H 'Content-Type: application/json' -d '{ "title": "Item 1" }' http://makeitreal-todo.herokuapp.com/todo_items</pre>
+        <h4>Result</h4>
+        <p>If everything works as expected, you will receive a status <code>200 OK</code> with the created item:</p>
+        <pre>{ "id": 1, "title": "Item 1", "done": false, "create_at": "...", "updated_at": "" }</pre>
+
+        <a name="update-item"></a>
+        <h3>Update Todo Item</h3>
+        <p>To update an item to the Todo List, make a <code>PATCH</code> call to the <code>/todo_items/&lt;item_id&gt;</code> endpoint with the changes you want to make:</p>
+        <pre>PATCH http://makeitreal-todo.herokuapp.com/todo_items/&lt;item_id&gt;</pre>
+        <pre>{ "title": "Changed title", "done": true }</pre>
+        <h4>Example</h4>
+        <p>Copy and paste the following line to your console:</p>
+        <pre>curl -i -X PATCH -H 'Content-Type: application/json' -d '{ "done": true }' http://makeitreal-todo.herokuapp.com/todo_items/1</pre>
+        <h4>Result</h4>
+        <p>If everything works as expected, you will receive a status <code>204 No Content</code></p>
+
+        <a name="delete-item"></a>
+        <h3>Delete Todo Item</h3>
+        <p>To delete an item to the Todo List, make a <code>DELETE</code> call to the <code>/todo_items/&lt;item_id&gt;</code> endpoint:</p>
+        <pre>DELETE http://makeitreal-todo.herokuapp.com/todo_items/&lt;item_id&gt;</pre>
+        <h4>Example</h4>
+        <p>Copy and paste the following line to your console:</p>
+        <pre>curl -i -X DELETE http://makeitreal-todo.herokuapp.com/todo_items/1</pre>
+        <h4>Result</h4>
+        <p>If everything works as expected, you will receive a status <code>204 No Content</code></p>
+      </div>
+    </div>
+  </div>
