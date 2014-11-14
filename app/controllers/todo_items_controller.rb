@@ -25,7 +25,7 @@ class TodoItemsController < ApplicationController
     if @todo_item.save
       respond_with @todo_item
     else
-      respond_with @todo_item.errors
+      render json: { errors: @todo_item.errors.full_messages }
     end
   end
 
